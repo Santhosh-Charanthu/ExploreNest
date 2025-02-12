@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <a class="navbar-brand" href="/listings">
+    <i class="fa-regular fa-compass"></i>
+  </a>
+
+  <div class="navbar-nav">
+    <a class="nav-link" id="explore" href="/listings">Explore</a>
+  </div>
+
+  <div class="navbar-nav searchbar">
+    <form
+      id="searchForm"
+      method="get"
+      action="/listings/country/"
+      class="d-flex search-form"
+      role="search"
+      onsubmit="updateAction()"
+    >
+      <input
+        id="countryName"
+        class="form-control me-2 search-input"
+        type="search"
+        name="country"
+        placeholder="Search for countrywise listings"
+      />
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+  </div>
+
+  <div class="container-fluid">
+    <!-- Toggle button to open slide menu -->
+    <button class="navbar-toggler" type="button" onclick="openSlideMenu()">
+      <span id="toggler" class="material-symbols-outlined"> menu </span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto options">
+        <a class="nav-link" href="/listings/new">
+          <button class="button" type="button">
+            <span class="button__text">Add New</span>
+            <span class="button__icon">
+              <svg
+                class="svg"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="12" x2="12" y1="5" y2="19"></line>
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+              </svg>
+            </span>
+          </button>
+        </a>
+
+        <% if (!currUser) { %>
+        <a class="nav-link logins" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link logins" href="/login"><b>Log in</b></a>
+        <% } else { %>
+        <a class="nav-link" href="/logout">
+          <button class="Btn">
+            <div class="sign">
+              <svg viewBox="0 0 512 512">
+                <path
+                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+                ></path>
+              </svg>
+            </div>
+            <div class="text">Logout</div>
+          </button>
+        </a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Slide Menu for Small Screens -->
+<div id="slideMenu" class="slide-menu">
+  <div class="slide-content">
+    <a href="/listings/new" class="nav-link">
+      <button class="button" type="button">
+        <span class="button__text">Add New</span>
+        <span class="button__icon">
+          <svg
+            class="svg"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line x1="12" x2="12" y1="5" y2="19"></line>
+            <line x1="5" x2="19" y1="12" y2="12"></line>
+          </svg>
+        </span>
+      </button>
+    </a>
+
+    <% if (!currUser) { %>
+    <a href="/signup" class="nav-link"><b>Sign up</b></a>
+    <a href="/login" class="nav-link"><b>Log in</b></a>
+    <% } else { %>
+    <a href="/logout" class="nav-link">
+      <button class="Btn">
+        <div class="sign">
+          <svg viewBox="0 0 512 512">
+            <path
+              d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9z"
+            ></path>
+          </svg>
+        </div>
+        <div class="text logout-text">Logout</div>
+      </button>
+    </a>
+    <% } %>
+  </div>
+  <button class="close-btn" onclick="closeSlideMenu()">×</button>
+</div>
+
+<!-- JavaScript to Open/Close Slide Menu -->
+<script>
+  function openSlideMenu() {
+    document.getElementById("slideMenu").style.transform = "translateX(0)";
+  }
+
+  function closeSlideMenu() {
+    document.getElementById("slideMenu").style.transform = "translateX(-100%)";
+  }
+</script>
+
+<!-- CSS to Hide Navbar Items and Show in Slide Menu -->
+<style>
+  @media (max-width: 893px) {
+    .navbar-nav.ms-auto.options {
+      display: none; /* Hide navbar buttons on small screens */
+    }
+    #slideMenu {
+      display: block;
+    }
+  }
+</style>

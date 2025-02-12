@@ -1,0 +1,902 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  height: 5rem;
+  background-color: #fff;
+}
+
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  width: 100%;
+  max-width: 100vw;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card {
+  border: none !important;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400 !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: #fff;
+}
+
+/* New Page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Show Page */
+.show-img {
+  height: 40vh;
+}
+
+.btns {
+  display: flex;
+}
+
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Reviews Section */
+.review-card {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.review-card .card-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.review-card .card-text {
+  margin-bottom: 0.5rem;
+}
+
+.review-card .btn {
+  margin-top: 0.5rem;
+}
+
+#filters-container {
+  display: flex;
+  flex-direction: row; /* Place icons and toggle in a row */
+  align-items: center;
+  justify-content: space-between; /* Space between icons and toggle */
+  width: 100%;
+}
+
+#filters {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 1rem; /* Space between filters */
+  scroll-behavior: smooth;
+  padding: 1rem;
+  max-width: 100%;
+  cursor: grab; /* Indicate that the user can drag */
+}
+
+#filters::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+#filters {
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.filter {
+  flex: 0 0 auto; /* Prevent filters from resizing */
+  text-align: center;
+  margin-right: 1rem; /* Space between filters */
+  opacity: 0.7;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter p {
+  font-size: 0.8rem;
+}
+
+.tax-toggle-container {
+  display: flex;
+  justify-content: flex-end; /* Align toggle to the right */
+  margin-top: 1.5rem; /* Add spacing between the icons and the toggle */
+}
+
+.tax-toggle {
+  width: 100%; /* Make the toggle take full width */
+  max-width: 300px; /* Limit the max width */
+  border: 1px solid grey;
+  border-radius: 1rem;
+  height: 3.25rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: center; /* Center the content inside the toggle */
+  margin-left: 1rem; /* Space between the toggle and the left edge */
+}
+
+/* Responsive styles for screens smaller than 600px */
+@media (max-width: 600px) {
+  .show-img {
+    border-radius: 1rem !important;
+    height: 150px !important;
+    width: 400px;
+    object-fit: cover !important;
+  }
+  #filters-container {
+    flex-direction: column; /* Stack the icons and toggle vertically */
+    align-items: flex-start; /* Align them to the left */
+  }
+
+  #filters {
+    max-width: 100%; /* Ensure filters take up full width */
+    padding: 0.5rem; /* Reduce padding for better spacing */
+  }
+
+  .tax-toggle-container {
+    margin-top: 1rem; /* Reduce space between the icons and toggle */
+    width: 100%; /* Ensure the toggle takes full width */
+  }
+
+  .tax-toggle {
+    max-width: 100%; /* Allow the toggle to take full width on small screens */
+    height: 2.5rem; /* Reduce height */
+    padding: 0.8rem; /* Reduce padding */
+    font-size: 0.9rem; /* Adjust font size */
+    margin-left: 0; /* Remove the left margin */
+  }
+
+  /* Adjust icon size and space between filters */
+  .filter {
+    margin-right: 0.8rem; /* Reduce space between filters */
+  }
+
+  .filter i {
+    font-size: 1rem; /* Adjust icon size for smaller screens */
+  }
+
+  .filter p {
+    font-size: 0.75rem; /* Adjust text size */
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Navbar Custom Styles */
+.navbar {
+  padding: 1rem 1.5rem;
+  z-index: 999; /* Ensure the navbar stays on top */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+}
+
+.search-form {
+  display: flex;
+  flex-grow: 1;
+  align-items: center; /* Center the search bar vertically */
+  max-width: 100%;
+  justify-content: flex-start; /* Align to the left */
+}
+
+.search-input {
+  border-radius: 25px;
+
+  font-size: 1rem;
+  padding-left: 1rem;
+  width: 100%; /* Default width for small screens */
+  margin-right: 1rem;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
+}
+
+.search-btn {
+  background-color: #fe424d;
+  height: 2.5rem;
+  width: 50px;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0 1rem;
+}
+
+.search-btn:hover {
+  background-color: #fe424d;
+  color: #fff;
+}
+
+.search-btn i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+/* Slide Menu Styles */
+.slide-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.slide-menu .slide-content a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+  transition: 0.3s;
+}
+
+.searchbar {
+  display: flex;
+  align-items: center;
+}
+
+.slide-menu .slide-content a:hover {
+  color: #fe424d;
+}
+
+.slide-menu .close-btn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 922px) {
+  .navbar-nav.ms-auto {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  /* Ensure the search bar is fully visible and adjusts well on medium screens */
+  .search-input {
+    width: 80%; /* Adjust width for smaller screens */
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    font-size: 0.8rem;
+    width: auto;
+  }
+
+  .navbar-toggler {
+    z-index: 1050;
+  }
+
+  /* Hide the slide menu options when not in use */
+  .navbar-collapse {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Adjust search bar width for small screens */
+  .search-input {
+    width: 100%; /* Full width on small screens */
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-btn {
+    width: 100%; /* Full width button on small screens */
+    font-size: 0.9rem;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #333;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #fe424d;
+}
+
+.navbar-toggler-icon {
+  background-color: #fe424d;
+}
+.navbar-nav.searchbar {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 100%;
+  margin-left: 25%;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items inside */
+  width: 100%;
+  max-width: 500px; /* Set a maximum width */
+  margin: 0 auto; /* Center the form */
+}
+
+/* Style the search input field */
+.search-btn {
+  background-color: #fe424d;
+  height: 2.5rem;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0 1rem;
+  margin-left: 0.5rem; /* Space between input and button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+}
+
+.search-btn {
+  background-color: #fe424d;
+  height: 2.5rem;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0 1rem;
+}
+
+.search-btn:hover {
+  background-color: #fe424d;
+  color: #fff;
+}
+
+.search-btn i {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 994px) {
+  .navbar-toggler {
+    display: inline;
+  }
+}
+
+@media (max-width: 892px) and (min-width: 769px) {
+  .nav-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 590px) {
+  .searchbar {
+    margin-top: -50px;
+    margin-left: 15%;
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  #explore {
+    display: none;
+  }
+  .search-btn {
+    margin-right: 35%;
+  }
+}
+
+@media (max-width: 590px) and (min-width: 576px) {
+  .search-input {
+    margin: 15px 0;
+  }
+  .search-btn {
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 589px) {
+  .navbar-brand {
+    display: none;
+  }
+  .nav-link {
+    display: none;
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 5px;
+    top: 20px;
+  }
+  #explore {
+    display: none;
+  }
+  .search-input {
+    width: 200px;
+    position: relative;
+    bottom: 11px;
+  }
+  .search-btn {
+    position: relative;
+    bottom: 18px;
+    width: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search-input {
+    width: 200px;
+    position: relative;
+    bottom: 25px;
+    margin-right: 15%;
+  }
+  .search-btn {
+    position: relative;
+    bottom: 35px;
+    margin-right: 45%;
+  }
+}
+
+@media (max-width: 590px) and (min-width: 587px) {
+  .search-input {
+    position: relative;
+    margin-top: -40px;
+    margin-right: 15%;
+  }
+  .search-btn {
+    position: relative;
+    margin-top: -55px;
+    margin-right: 30%;
+  }
+  .nav-link {
+    display: none;
+  }
+  #toggler {
+    display: inline;
+  }
+}
+
+@media (max-width: 574px) and (min-width: 495px) {
+  .search-input {
+    position: relative;
+    margin-top: -15px;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: -20px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 495px) {
+  .search-input {
+    position: relative;
+    margin-top: 0px;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: 5px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 588px) and (min-width: 587px) {
+  .search-input {
+    position: relative;
+    margin-top: 18px;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: 18px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 576px) and (min-width: 574px) {
+  .search-input {
+    position: relative;
+    margin-top: -4%;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: -18px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 584px) and (min-width: 577px) {
+  .search-input {
+    position: relative;
+    margin-top: 4%;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 587px) and (min-width: 585px) {
+  .search-input {
+    position: relative;
+    margin-top: 4%;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: 10px;
+    margin-right: 30%;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 766px) {
+  .searchbar {
+    margin-top: 0; /* Remove the negative margin */
+    margin-left: 0; /* Reset the left margin */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+  }
+
+  .search-input {
+    width: 60%; /* Adjust the width as needed */
+    margin-right: 0.5rem; /* Add some spacing between input and button */
+    position: static; /* Reset any positioning */
+    bottom: auto; /* Reset any positioning */
+  }
+
+  .search-btn {
+    margin-right: 0; /* Reset the right margin */
+    position: static; /* Reset any positioning */
+    bottom: auto; /* Reset any positioning */
+    width: auto; /* Allow the button to size itself */
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  #explore {
+    display: none; /* Hide the explore link */
+  }
+}
+
+@media (max-width: 768px) and (min-width: 766px) {
+  .search-input {
+    position: relative;
+    margin-top: -10%;
+  }
+
+  .search-btn {
+    position: relative;
+    margin-top: -10%;
+    margin-right: 25%;
+  }
+}
+
+@media (max-width: 769px) and (min-width: 768px) {
+  .search-input {
+    width: 400px;
+    margin-top: 0px;
+  }
+
+  .search-btn {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 1132px) and (min-width: 893px) {
+  .nav-link {
+    display: none;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1050;
+  }
+}
+
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
+/* From Uiverse.io by andrew-demchenk0 */
+.button {
+  --main-focus: #2d8cf0;
+  --font-color: #323232;
+  --bg-color-sub: #dedede;
+  --bg-color: #eee;
+  --main-color: #323232;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.button,
+.button__icon,
+.button__text {
+  transition: all 0.3s;
+}
+
+.button .button__text {
+  transform: translateX(22px);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.button .button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: var(--bg-color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button .svg {
+  width: 20px;
+  fill: var(--main-color);
+}
+
+.button:hover {
+  background: var(--bg-color);
+}
+
+.button:hover .button__text {
+  color: transparent;
+}
+
+.button:hover .button__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px var(--main-color);
+}
+
+@media (max-width: 1132px) {
+  .logout-text {
+    font-size: 18px;
+  }
+
+  .navbar-toggler {
+    display: inline;
+  }
+}
+
+@media (max-width: 893px) {
+  .navbar-nav.ms-auto.options {
+    display: none; /* Hide navbar options in small screens */
+  }
+
+  #slideMenu {
+    display: inline; /* Ensure slide menu is available */
+  }
+}
+
+@media (max-width: 927px) and (min-width: 770px) {
+  .navbar-toggler {
+    display: block !important; /* Ensure it's visible */
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1050; /* Keep it above other elements */
+  }
+
+  .options {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 600px) {
+  .tax-toggle {
+    display: none;
+  }
+}
+
+.logins {
+  position: relative;
+  top: 10px;
+}
+
+@media (max-width: 383px) {
+  .search-input {
+    margin-left: -40px;
+  }
+
+  .search-btn {
+    margin-left: -2px;
+  }
+}
