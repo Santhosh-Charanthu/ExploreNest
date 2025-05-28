@@ -32,6 +32,7 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(cookieParser("secretcode"));
+app.use(express.static("public"));
 
 main()
   .then(() => {
